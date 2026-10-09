@@ -6,25 +6,31 @@ This directory contains the datasets used in the Customer Churn Prediction proje
 
 The project uses the IBM Telco Customer Churn dataset.
 
-Each row represents a telecommunications customer and contains information about:
+Each row represents a telecommunications customer and contains demographic,
+service, contract, billing and churn information.
 
-- Customer demographics
-- Services subscribed
-- Contract information
-- Billing and payment information
-- Customer tenure
-- Monthly and total charges
-- Churn status
+The dataset contains 7,043 customer observations and 21 variables.
 
-The target variable is:
+## Source
 
-`Churn`
+Dataset: IBM Telco Customer Churn
 
-which indicates whether the customer left the company.
+The dataset can be obtained from IBM's public sample repository.
+
+Expected filename:
+
+`WA_FnUseC_TelcoCustomerChurn.csv`
+
+After downloading the file, place it in:
+
+`data/raw/WA_FnUseC_TelcoCustomerChurn.csv`
+
+Raw data files are intentionally excluded from Git version control.
 
 ## Directory structure
 
 ```text
 data/
 ├── raw/
+│   └── WA_FnUseC_TelcoCustomerChurn.csv
 └── processed/
