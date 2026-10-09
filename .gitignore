@@ -17,7 +17,7 @@ data/raw/*
 !data/raw/.gitkeep
 
 data/processed/*
-!data/processed/.gitkeepS
+!data/processed/.gitkeep
 
 # IDE settings
 .vscode/
