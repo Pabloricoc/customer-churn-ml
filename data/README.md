@@ -13,9 +13,11 @@ The dataset contains 7,043 customer observations and 21 variables.
 
 ## Source
 
-Dataset: IBM Telco Customer Churn
+Dataset: **IBM Telco Customer Churn**
 
-The dataset can be obtained from IBM's public sample repository.
+The dataset is available from IBM's public sample repository:
+
+https://github.com/IBM/watsonx-ai-samples/blob/master/cpd4.5/data/customer_churn/WA_FnUseC_TelcoCustomerChurn.csv
 
 Expected filename:
 

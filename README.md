@@ -4,6 +4,25 @@ End-to-end machine learning project for predicting customer churn in a telecommu
 
 The project covers the complete machine learning lifecycle, from data understanding and exploratory analysis to model comparison, hyperparameter tuning, threshold selection, final evaluation, model interpretation, error analysis and reusable ML code.
 
+## Key Results
+
+| Metric | Final Test Result |
+|---|---:|
+| ROC-AUC | **0.8467** |
+| Recall | **0.7219** |
+| Precision | 0.5602 |
+| F1-score | **0.6308** |
+| Average Precision | 0.6675 |
+
+- **Final model:** Gradient Boosting
+- **Classification threshold:** `0.35`
+- **Detected churners:** `270 / 374`
+
+The selected operating threshold prioritizes churn detection over raw accuracy, increasing recall from approximately `51.3%` at the conventional `0.50` threshold to `72.2%`.
+
+![Final ROC Curve](reports/figures/final_roc_curve.png)
+
+
 ## Business Problem
 
 Customer churn occurs when customers stop using a company's services.
@@ -339,11 +358,14 @@ Notebook:
 
 [`07_final_evaluation.ipynb`](notebooks/07_final_evaluation.ipynb)
 
----
+The selected threshold was determined using out-of-fold training probabilities, not the final test set.
+
+![Threshold Trade-off](reports/figures/threshold_tradeoff.png)
 
 ## Model Interpretation
 
 The finalized Gradient Boosting model was analyzed using several complementary interpretation methods.
+![Aggregated Feature Importance](reports/figures/feature_importance.png)
 
 ### Model-Based Feature Importance
 
@@ -520,7 +542,9 @@ ROC-AUC:   0.8467
 Several safeguards were used to reduce optimistic evaluation and data leakage.
 
 - The train/test split is stratified and reproducible.
-- The final test set is isolated from model tuning.
+- The fixed test split was used for early baseline sanity checks.
+- All subsequent model comparison, hyperparameter tuning and threshold selection were performed exclusively on the training data.
+- The final test evaluation was not used to modify the finalized model or threshold.
 - Missing-value imputation, scaling and encoding are contained inside scikit-learn pipelines.
 - Candidate models use identical preprocessing.
 - Model comparison uses stratified 5-fold cross-validation.
@@ -565,6 +589,7 @@ The model should therefore be validated on current, company-specific data before
 ## Reproducibility
 
 Clone the repository and create a Python virtual environment.
+The project was validated using **Python 3.13**.
 
 Install the required dependencies:
 
@@ -617,6 +642,13 @@ src/
 
 ---
 
+## License
+
+The project code is released under the MIT License.
+
+The external dataset is not redistributed by this repository and remains subject to its original source terms.
+
+---
 ## Project Status
 
 **Completed**
